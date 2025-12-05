@@ -1,0 +1,57 @@
+<form id="aceptar_paso_1">
+    <div class="checkout-titulo">REALIZAR PEDIDO - PASO 1</div>
+    <div class="checkout-subtitulo">Introduce tus datos de envío</div>
+
+    <div class="checkout-form">
+        <label for="campo_nombre">Nombre completo:</label>
+        <input type="text" id="campo_nombre" name="nombre"
+               placeholder="Tu nombre completo"
+               required
+               pattern="^(?!.*\s{2})[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"
+               title="Solo letras y espacios, sin espacios consecutivos"/>
+    </div>
+
+    <div class="checkout-form">
+        <label for="campo_direccion">Dirección completa:</label>
+        <input type="text" id="campo_direccion" name="direccion"
+               placeholder="Tu dirección"
+               required
+               minlength="5"/>
+    </div>
+
+    <div class="checkout-form">
+        <label for="campo_provincia">Provincia:</label>
+        <input type="text" id="campo_provincia" name="provincia"
+               placeholder="Tu provincia"
+               required
+               pattern="^(?!.*\s{2})[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"
+               title="Solo letras y espacios, sin espacios consecutivos"/>
+    </div>
+
+    <div class="checkout-form">
+        <label for="campo_postal">Código Postal:</label>
+        <input type="text" id="campo_postal" name="codigo_postal"
+               placeholder="Código Postal"
+               required
+               pattern="^[0-9]{5}$"
+               title="Debe ser un código postal de 5 dígitos"/>
+    </div>
+
+    <div class="checkout-form">
+        <label for="campo_telefono">Teléfono:</label>
+        <input type="tel" id="campo_telefono" name="telefono"
+               placeholder="Tu teléfono"
+               required
+               pattern="^[0-9]{9}$"
+               title="Debe ser un número de 9 dígitos"/>
+    </div>
+
+    <div class="checkout-form">
+        <label for="campo_observaciones">Observaciones:</label>
+        <input type="text" id="campo_observaciones" name="observaciones"
+               placeholder="ej. 'El timbre no funciona', 'Dejar al vecino'...etc"
+               maxlength="200"/>
+    </div>
+
+    <button type="submit">ACEPTAR</button>
+</form>

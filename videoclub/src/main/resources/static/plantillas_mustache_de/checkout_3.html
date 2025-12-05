@@ -1,0 +1,27 @@
+<form id="aceptar_paso_3">
+    <div class="checkout-titulo">BESTELLUNG AUFGEBEN - SCHRITT 3</div>
+    <div class="checkout-subtitulo">Gib deine Nerd-Daten ein</div>
+
+    <div class="checkout-form">
+        <label for="genero_favorito">Lieblingsgenre:</label>
+        <select id="genero_favorito" name="genero_favorito" required>
+            <option value="">Genre wählen</option>
+            <option value="Aventura">Abenteuer</option>
+            <option value="Ciencia-Ficcion">Science-Fiction</option>
+            <option value="Comedia">Komödie</option>
+            <option value="Accion">Action</option>
+            <option value="Terror">Horror</option>
+        </select>
+    </div>
+
+    <div class="checkout-form">
+        <label for="pelicula_favorita">Lieblingsfilm:</label>
+        <input type="text" id="pelicula_favorita" name="pelicula_favorita"
+               placeholder="Gib deinen Lieblingsfilm ein"
+               required
+               pattern="^(?!.*\s{2})[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s]+$"
+               title="Nur Buchstaben, Zahlen und Leerzeichen, keine aufeinanderfolgenden Leerzeichen"/>
+    </div>
+
+    <button type="submit">BESTÄTIGEN</button>
+</form>

@@ -1,0 +1,18 @@
+<div>Filmliste des Shops:</div>
+
+<div class="grid-productos">
+{{ #array_peliculas }}
+    <div class="producto">
+        <img src="mostrar_imagen?id={{ID}}" alt="Cover {{ TITULO }}"/>
+        <h3>{{ TITULO }}</h3>
+        <p><strong>Regisseur:</strong> {{ DIRECTOR }}</p>
+        <p><strong>Beschreibung:</strong> {{ DESCRIPCION }}</p>
+        <p><strong>Genre:</strong> {{ GENERO }}</p>
+        <p><strong>Preis:</strong> {{ PRECIO }}</p>
+        <p><strong>Budget:</strong> {{ PRESUPUESTO }}</p>
+        <div class="acciones">
+            <a href="#" class="enlace_comprar_producto" id-producto="{{ ID }}">IN DEN WARENKORB</a>
+        </div>
+    </div>
+{{ /array_peliculas }}
+</div>

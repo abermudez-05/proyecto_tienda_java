@@ -1,0 +1,15 @@
+<div class="carrusel">
+  <div class="carrusel-track">
+    {{#array_peliculas}}
+      <div class="carrusel-item" style="background-image: url('mostrar_imagen_extendida?id={{ID}}');">
+        <div class="carrusel-caption">
+          <h3>{{TITULO}}</h3>
+          <p class="precio">Price: {{PRECIO}} €</p>
+          <button class="enlace_comprar_producto" id-producto="{{ID}}">Add to cart</button>
+        </div>
+      </div>
+    {{/array_peliculas}}
+  </div>
+  <button class="carrusel-boton izq">&#10094;</button>
+  <button class="carrusel-boton der">&#10095;</button>
+</div>

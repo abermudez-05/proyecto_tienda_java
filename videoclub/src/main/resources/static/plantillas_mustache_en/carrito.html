@@ -1,0 +1,18 @@
+<div class="carrito-titulo">Shopping Cart</div>
+
+<div class="carrito-items">
+{{#.}}
+    <div class="carrito-item">
+        <h3>{{TITULO}}</h3>
+        <img src="mostrar_imagen?id={{PELICULA_ID}}" alt="{{TITULO}}"/>
+        <p><strong>Price:</strong> {{PRECIO}}€</p>
+        <p><strong>Quantity:</strong> {{CANTIDAD}}</p>
+        <p>{{DESCRIPCION}}</p>
+        <a id-pelicula="{{PELICULA_ID}}" class="enlace-borrar-producto-carrito" href="#">Remove from cart</a>
+    </div>
+{{/.}}
+</div>
+
+<div class="carrito-total">
+    <a href="#" id="realizar_pedido">PLACE ORDER</a>
+</div>

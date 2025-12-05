@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Administración</title>
+<style>
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo con gradiente */
+body {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  color: #e8e9f3;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(88, 166, 255, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Contenedor principal */
+.admin-login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Caja de login */
+.admin-login-box {
+  background: rgba(42, 42, 63, 0.9);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 50px 40px;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Título */
+.admin-login-titulo {
+  color: #a0c4ff;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+/* Mensaje de error */
+.admin-login-error {
+  color: #f5576c;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(245, 87, 108, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(245, 87, 108, 0.3);
+}
+
+/* Formulario */
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-login-form label {
+  color: #e8e9f3;
+  font-weight: 600;
+  text-align: left;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.admin-login-form input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  background: rgba(58, 58, 92, 0.6);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  color: #e8e9f3;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.admin-login-form input[type="password"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+  background: rgba(58, 58, 92, 0.8);
+}
+
+.admin-login-form input[type="password"]::placeholder {
+  color: rgba(232, 233, 243, 0.5);
+}
+
+.admin-login-form input[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.admin-login-form input[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+}
+</style>
+</head>
+<body>
+
+<div class="admin-login-container">
+    <div class="admin-login-box">
+        <div class="admin-login-titulo">
+            Identifícate para poder entrar en la administración
+        </div>
+        
+        <div class="admin-login-error" th:if="${mensaje}" th:text="${mensaje}"></div>
+        
+        <form class="admin-login-form" action="admin/obtenerPeliculas" method="post">
+            <div>
+                <label for="pass-admin">Contraseña:</label>
+                <input type="password" id="pass-admin" name="pass-admin" placeholder="Introduce la contraseña">
+            </div>
+            <input type="submit" value="INICIAR SESIÓN">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<div>Store Movie List:</div>
+
+<div class="grid-productos">
+{{ #array_peliculas }}
+    <div class="producto">
+        <img src="mostrar_imagen?id={{ID}}" alt="Cover {{ TITULO }}"/>
+        <h3>{{ TITULO }}</h3>
+        <p><strong>Director:</strong> {{ DIRECTOR }}</p>
+        <p><strong>Description:</strong> {{ DESCRIPCION }}</p>
+        <p><strong>Genre:</strong> {{ GENERO }}</p>
+        <p><strong>Price:</strong> {{ PRECIO }}</p>
+        <p><strong>Budget:</strong> {{ PRESUPUESTO }}</p>
+        <div class="acciones">
+            <a href="#" class="enlace_comprar_producto" id-producto="{{ ID }}">ADD TO CART</a>
+        </div>
+    </div>
+{{ /array_peliculas }}
+</div>

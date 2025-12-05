@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{admin.usuarios.tituloPagina}">Administración de Usuarios</title>
+    <link rel="stylesheet" href="../css/estilos_admin.css">
+</head>
+<body>
+
+    <div th:insert="fragments/general.html :: menu"></div>
+
+    <div class="contenedor-admin grid-usuarios">
+
+        <div class="admin-header">
+            <span th:text="#{admin.usuarios.cabecera}">Administración de Usuarios</span>
+        </div>
+
+        <div>
+            <a href="registrarUsuario" class="boton-accion-principal">
+                <span th:text="#{admin.usuarios.registrarNuevo}">Registrar nuevo usuario</span>
+            </a>
+        </div>
+
+        <div th:each="usuario : ${usuarios}" class="usuario-card">
+
+            <span><strong><span th:text="#{usuario.nombre}">Nombre:</span></strong> 
+                <span th:text="${usuario.nombre}"></span>
+            </span>
+
+            <span><strong><span th:text="#{usuario.email}">Email:</span></strong> 
+                <span th:text="${usuario.email}"></span>
+            </span>
+
+            <span><strong><span th:text="#{usuario.telefono}">Teléfono:</span></strong> 
+                <span th:text="${usuario.telefono}"></span>
+            </span>
+
+            <span><strong><span th:text="#{usuario.nickname}">Nickname:</span></strong> 
+                <span th:text="${usuario.nickname}"></span>
+            </span>
+
+            <span><strong><span th:text="#{usuario.id}">ID:</span></strong> 
+                <span th:text="${usuario.id}"></span>
+            </span>
+
+            <!-- Botón borrar -->
+            <a th:href="@{'borrarUsuario?id=' + ${usuario.id}}"
+               onclick="return confirm('#{admin.usuarios.confirmarBorrar}')">
+                <span th:text="#{admin.usuarios.borrar}">Borrar</span>
+            </a>
+
+            <!-- Botón editar -->
+            <a th:href="@{'editarUsuario?id=' + ${usuario.id}}">
+                <span th:text="#{admin.usuarios.editar}">Editar</span>
+            </a>
+
+        </div>
+
+    </div>
+</body>
+</html>

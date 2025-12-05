@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/estilos.css">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- Enlace admin con clase -->
+<div class="enlace-admin">
+    <a href="admin/obtenerPeliculas">Zugang zur Verwaltung</a>
+</div>
+
+<!-- Quitar el style inline -->
+<div class="bienvenida">
+	Willkommen im öffentlichen Bereich des Geschäfts
+</div>
+
+<!-- Añadir clase a los idiomas -->
+<div class="menu-idiomas">
+	<a href="?idioma=es">ESPAÑOL</a>
+	<a href="?idioma=en">ENGLISH</a>
+	<a href="?idioma=de">DEUTSCH</a>
+</div>
+
+<div class="menu-enlaces">
+    <a id="enlace_productos" href="#">PRODUKTE</a> &nbsp;&nbsp;
+    <a id="enlace_identificarme" href="#">ANMELDEN</a> &nbsp;&nbsp;
+    <a id="enlace_registrarme" href="#">REGISTRIEREN</a> &nbsp;&nbsp;
+	<a id="enlace_carrito" href="#">WARENKORB</a> &nbsp;&nbsp;
+</div>
+<div style="text-align: right;margin: 20px;" id="login_usuario">
+</div>
+<div class="contenedor-grid">
+  <div id="contenedor">
+
+  </div>
+</div>
+
+
+<!-- __incluir__ __los__ __archivos__ __de__ __javascript__ __necesarios__ -->
+<script src="librerias_js/jquery.js"></script>
+<script src="librerias_js/mustache.js"></script>
+<script src="javascript/globales.js"></script>
+<script>idioma = "_de"</script>
+<script src="javascript/cargar_plantillas.js"></script>
+<script src="javascript/funciones_menu.js"></script>
+<script src="javascript/main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/estilos_admin.css">
+<title th:text="#{admin.pedidos.detalles.tituloPagina}">Detalles del Pedido</title>
+</head>
+<body>
+
+<div th:insert="fragments/general.html :: menu"></div>
+
+<div class="contenedor-admin">
+
+    <div class="admin-header">
+        <span th:text="#{admin.pedidos.detalles.cabecera}">Detalles del Pedido</span>
+    </div>
+
+    <!-- Detalles de envío -->
+    <div class="seccion-detalle">
+        <h3 class="subtitulo-seccion" th:text="#{admin.pedidos.detalles.envio}">Detalles de Envío</h3>
+        <div class="info-detalle">
+            <span><strong><span th:text="#{pedido.nombreCompleto}">Nombre Completo:</span></strong> 
+                <span th:text="${pedido.nombreCompleto}"></span></span>
+
+            <span><strong><span th:text="#{pedido.direccion}">Dirección:</span></strong> 
+                <span th:text="${pedido.direccion}"></span></span>
+
+            <span><strong><span th:text="#{pedido.provincia}">Provincia:</span></strong> 
+                <span th:text="${pedido.provincia}"></span></span>
+        </div>
+    </div>
+
+    <!-- Datos de pago -->
+    <div class="seccion-detalle">
+        <h3 class="subtitulo-seccion" th:text="#{admin.pedidos.detalles.pago}">Datos de Pago</h3>
+        <div class="info-detalle">
+            <span><strong><span th:text="#{pedido.tipoTarjeta}">Tipo de Tarjeta:</span></strong> 
+                <span th:text="${pedido.tipoTarjeta}"></span></span>
+
+            <span><strong><span th:text="#{pedido.titularTarjeta}">Titular:</span></strong> 
+                <span th:text="${pedido.titularTarjeta}"></span></span>
+
+            <span><strong><span th:text="#{pedido.numeroTarjeta}">Número de Tarjeta:</span></strong> 
+                <span th:text="${pedido.numeroTarjeta}"></span></span>
+        </div>
+    </div>
+
+    <!-- Productos -->
+    <div class="seccion-detalle">
+        <h3 class="subtitulo-seccion" th:text="#{admin.pedidos.detalles.productos}">Productos del Pedido</h3>
+
+        <div th:each="productoPedido: ${pedido.productosPedido}" class="producto-pedido-card">
+            <span><strong><span th:text="#{pelicula.titulo}">Título:</span></strong> 
+                <span th:text="${productoPedido.pelicula.titulo}"></span></span>
+
+            <span><strong><span th:text="#{pedido.precioUnidad}">Precio/unidad:</span></strong> 
+                <span th:text="${productoPedido.pelicula.precio}"></span> €</span>
+
+            <span><strong><span th:text="#{pelicula.descripcion}">Descripción:</span></strong> 
+                <span th:text="${productoPedido.pelicula.descripcion}"></span></span>
+        </div>
+    </div>
+
+    <!-- Cambio de estado -->
+    <div class="seccion-detalle">
+        <h3 class="subtitulo-seccion" th:text="#{admin.pedidos.detalles.cambiarEstado}">Cambiar Estado del Pedido</h3>
+        <div class="campo-formulario">
+            <label for="select_estado"><span th:text="#{admin.pedidos.detalles.estadoActual}">Estado actual:</span></label>
+            <select id="select_estado" th:field="${pedido.estado}">
+                <option th:each="e : ${estados}" th:value="${e.key}" th:text="${e.value}"></option>
+            </select>
+        </div>
+    </div>
+
+    <input type="hidden" id="id_pedido" th:value="${pedido.id}">
+</div>
+
+<script src="../librerias_js/jquery.js"></script>
+<script>
+    $("#select_estado").change(function(e){
+        let estado = $("#select_estado").find(":selected").val();
+        let idPedido = $("#id_pedido").val();
+        
+        if(confirm(/*[[#{admin.pedidos.detalles.confirmarCambio}]]*/"¿Seguro?")){
+            $.post("pedidosREST/actualizarEstadoPedido",{
+                id: idPedido,
+                estado: estado
+            }).done(function(res){
+                alert(res);
+            }).fail(function(){
+                alert(/*[[#{admin.pedidos.detalles.errorActualizar}]]*/"Error al actualizar");
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

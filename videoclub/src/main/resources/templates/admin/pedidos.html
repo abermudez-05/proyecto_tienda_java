@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/estilos_admin.css">
+<title th:text="#{admin.pedidos.tituloPagina}">Gestión de Pedidos</title>
+</head>
+<body>
+
+<div th:insert="fragments/general.html :: menu"></div>
+
+<div class="contenedor-admin grid-pedidos">
+    <div class="admin-header">
+        <span th:text="#{admin.pedidos.cabecera}">Gestión de Pedidos</span>
+    </div>
+
+    <div class="info-text">
+        <span th:text="#{admin.pedidos.listado}">Listado de pedidos realizados en la tienda</span>
+    </div>
+
+    <div th:each="pedido: ${pedidos}" class="pedido-card">
+        <div class="pedido-info">
+            <span><strong><span th:text="#{pedido.cliente}">Cliente:</span></strong> 
+                <span th:text="${pedido.nombreCompleto}"></span></span>
+
+            <span><strong><span th:text="#{pedido.direccion}">Dirección:</span></strong> 
+                <span th:text="${pedido.direccion}"></span></span>
+
+            <span><strong><span th:text="#{pedido.estado}">Estado:</span></strong> 
+                <span class="estado-badge" th:text="${pedido.estado}"></span></span>
+        </div>
+
+        <div class="pedido-acciones">
+            <a th:href="@{${'verDetallesPedido?id=' + pedido.id}}" class="btn-ver-detalles">
+                <span th:text="#{admin.pedidos.verDetalles}">Ver detalles</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

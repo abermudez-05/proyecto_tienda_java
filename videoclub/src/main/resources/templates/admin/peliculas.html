@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="#{admin.peliculas.tituloPagina}">Administración de Películas</title>
+  <link rel="stylesheet" href="../css/estilos_admin.css">
+</head>
+<body>
+
+  <!-- Menú general -->
+  <div th:insert="fragments/general.html :: menu"></div>
+
+  <!-- Contenedor principal -->
+  <div class="contenedor-admin grid-peliculas">
+
+    <!-- Cabecera -->
+    <div class="admin-header">
+      <span th:text="#{admin.peliculas.cabecera}">Administración de Películas</span>
+    </div>
+
+    <!-- Botón de acción principal -->
+    <div>
+      <a href="registrarPelicula" class="boton-accion-principal">
+        <span th:text="#{admin.peliculas.registrarNueva}">Registrar nueva película</span>
+      </a>
+    </div>
+
+    <!-- Tarjetas de películas -->
+    <div th:each="pelicula: ${peliculas}" class="pelicula-card">
+
+      <span><strong><span th:text="#{pelicula.titulo}">Título:</span></strong> 
+        <span th:text="${pelicula.titulo}"></span>
+      </span>
+
+      <span><strong><span th:text="#{pelicula.director}">Director:</span></strong> 
+        <span th:text="${pelicula.director}"></span>
+      </span>
+
+      <span><strong><span th:text="#{pelicula.descripcion}">Descripción:</span></strong> 
+        <span th:text="${pelicula.descripcion}"></span>
+      </span>
+
+      <span><strong><span th:text="#{pelicula.genero}">Género:</span></strong> 
+        <span th:text="${pelicula.genero}"></span>
+      </span>
+
+      <span><strong><span th:text="#{pelicula.precio}">Precio:</span></strong> 
+        <span th:text="${pelicula.precio}"></span> €
+      </span>
+
+      <span><strong><span th:text="#{pelicula.presupuesto}">Presupuesto:</span></strong> 
+        <span th:text="${pelicula.presupuesto}"></span> €
+      </span>
+
+      <span><strong><span th:text="#{pelicula.categoria}">Categoría:</span></strong> 
+        <span th:text="${pelicula.categoria.nombre}"></span>
+      </span>
+
+      <img th:src="@{${'../mostrar_imagen?id='+pelicula.id}}" alt="Imagen de película"/>
+
+      <!-- Botones de acción -->
+      <a th:href="@{${'borrarPelicula?id='+pelicula.id}}" 
+         onclick="return confirm('#{admin.peliculas.confirmarBorrar}')">
+        <span th:text="#{admin.peliculas.borrar}">Borrar</span>
+      </a>
+
+      <a th:href="@{${'editarPelicula?id='+pelicula.id}}">
+        <span th:text="#{admin.peliculas.editar}">Editar</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

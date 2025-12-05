@@ -1,0 +1,42 @@
+<div class="checkout-container">
+    <div class="checkout-titulo">REALIZAR PEDIDO - PASO 3</div>
+    <div class="checkout-subtitulo">Resumen del pedido</div>
+
+    <div class="checkout-resumen">
+        <div class="checkout-subtitulo">Productos</div>
+        {{#peliculas}}
+            <div class="checkout-resumen-item">
+                <img src="mostrar_imagen?id={{PELICULA_ID}}" alt="{{TITULO}}"/>
+                <div style="flex: 1;">
+                    <strong>{{TITULO}}</strong><br>
+                    Precio/unidad: {{PRECIO}}€ | Cantidad: {{CANTIDAD}}
+                </div>
+            </div>
+        {{/peliculas}}
+    </div>
+
+    <div class="checkout-resumen">
+        <div class="checkout-subtitulo">Datos de envío</div>
+        <p><strong>Nombre:</strong> {{nombreCompleto}}</p>
+        <p><strong>Dirección:</strong> {{direccion}}</p>
+        <p><strong>Provincia:</strong> {{provincia}}</p>
+        <p><strong>Código Postal:</strong> {{postal}}</p>
+        <p><strong>Teléfono:</strong> {{telefono}}</p>
+        <p><strong>Observaciones:</strong> {{observaciones}}</p>
+    </div>
+
+    <div class="checkout-resumen">
+        <div class="checkout-subtitulo">Datos de pago</div>
+        <p><strong>Tipo de tarjeta:</strong> {{tipoTarjeta}}</p>
+        <p><strong>Titular:</strong> {{titularTarjeta}}</p>
+        <p><strong>Número:</strong> {{numeroTarjeta}}</p>
+    </div>
+    
+    <div class="checkout-resumen">
+        <div class="checkout-subtitulo">Datos frikis</div>
+        <p><strong>Género favorito:</strong> {{generoFavorito}}</p>
+        <p><strong>Película favorita:</strong> {{peliculaFavorita}}</p>
+    </div>    
+
+    <button id="boton_confirmar_pedido">CONFIRMAR PEDIDO</button>
+</div>

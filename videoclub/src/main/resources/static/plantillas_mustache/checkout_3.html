@@ -1,0 +1,27 @@
+<form id="aceptar_paso_3">
+    <div class="checkout-titulo">REALIZAR PEDIDO - PASO 3</div>
+    <div class="checkout-subtitulo">Introduce tus datos frikis</div>
+
+    <div class="checkout-form">
+        <label for="genero_favorito">Género Favorito:</label>
+        <select id="genero_favorito" name="genero_favorito" required>
+            <option value="">Elegir tipo</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Ciencia-Ficcion">Ciencia-Ficción</option>
+            <option value="Comedia">Comedia</option>
+            <option value="Accion">Acción</option>
+            <option value="Terror">Terror</option>
+        </select>
+    </div>
+
+    <div class="checkout-form">
+        <label for="pelicula_favorita">Película Favorita:</label>
+        <input type="text" id="pelicula_favorita" name="pelicula_favorita"
+               placeholder="Introduce tu película favorita"
+               required
+               pattern="^(?!.*\s{2})[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s]+$"
+               title="Solo letras, números y espacios, sin espacios consecutivos"/>
+    </div>
+
+    <button type="submit">ACEPTAR</button>
+</form>

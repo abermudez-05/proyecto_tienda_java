@@ -1,0 +1,34 @@
+<form id="aceptar_paso_2">
+    <div class="checkout-titulo">BESTELLUNG AUFGEBEN - SCHRITT 2</div>
+    <div class="checkout-subtitulo">Gib deine Zahlungsdaten ein</div>
+    <p style="color: #a0a0a0; font-size: 0.9em;">⚠️ Keine echten Daten eingeben, Anwendung in Testphase</p>
+
+    <div class="checkout-form">
+        <label for="tipo_tarjeta">Kartentyp:</label>
+        <select id="tipo_tarjeta" name="tipo_tarjeta" required>
+            <option value="">Kartentyp wählen</option>
+            <option value="VISA">VISA</option>
+            <option value="MASTERCARD">MASTER CARD</option>
+        </select>
+    </div>
+
+    <div class="checkout-form">
+        <label for="numero_tarjeta">Kartennummer:</label>
+        <input type="text" id="numero_tarjeta" name="numero_tarjeta"
+               placeholder="1234567890123456"
+               required
+               pattern="^[0-9]{16}$"
+               title="Muss eine 16-stellige Kartennummer ohne Leerzeichen sein"/>
+    </div>
+
+    <div class="checkout-form">
+        <label for="titular_tarjeta">Karteninhaber:</label>
+        <input type="text" id="titular_tarjeta" name="titular_tarjeta"
+               placeholder="Name des Karteninhabers"
+               required
+               pattern="^(?!.*\s{2})[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"
+               title="Nur Buchstaben und Leerzeichen, keine aufeinanderfolgenden Leerzeichen"/>
+    </div>
+
+    <button type="submit">BESTÄTIGEN</button>
+</form>

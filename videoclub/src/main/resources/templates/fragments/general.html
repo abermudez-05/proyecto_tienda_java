@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/estilos_admin.css">
+<title th:text="#{titulo.bienvenida}"></title>
+</head>
+<body>
+
+<div th:fragment="menu">
+
+	<div>
+		<a th:href="@{/}">
+			<span th:text="#{menu.volver}"></span>
+		</a>
+	</div>
+
+	<div style="text-align: center; font-size: 2em; background-color: lightyellow;"> 
+		<span th:text="#{titulo.bienvenida}"></span>
+	</div>
+
+	<div>
+		<a href="?idioma=es"><span th:text="#{menu.es}"></span></a>
+		<a href="?idioma=en"><span th:text="#{menu.en}"></span></a>
+		<a href="?idioma=de"><span th:text="#{menu.de}"></span></a>
+	</div>
+
+	<div style="text-align: center;">
+		<a href="obtenerPeliculas"><span th:text="#{menu.gestion.peliculas}"></span></a>
+		<a href="obtenerUsuarios"><span th:text="#{menu.gestion.usuarios}"></span></a>
+		<a href="obtenerPedidos"><span th:text="#{menu.gestion.pedidos}"></span></a>
+		<a href="../logoutAdmin"><span th:text="#{menu.cerrar.sesion}"></span></a>
+	</div>
+
+</div>
+
+</body>
+</html>

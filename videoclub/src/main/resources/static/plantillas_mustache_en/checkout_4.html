@@ -1,0 +1,42 @@
+<div class="checkout-container">
+    <div class="checkout-titulo">PLACE ORDER - STEP 3</div>
+    <div class="checkout-subtitulo">Order Summary</div>
+
+    <div class="checkout-resumen">
+        <div class="checkout-subtitulo">Products</div>
+        {{#peliculas}}
+            <div class="checkout-resumen-item">
+                <img src="mostrar_imagen?id={{PELICULA_ID}}" alt="{{TITULO}}"/>
+                <div style="flex: 1;">
+                    <strong>{{TITULO}}</strong><br>
+                    Price/unit: {{PRECIO}}€ | Quantity: {{CANTIDAD}}
+                </div>
+            </div>
+        {{/peliculas}}
+    </div>
+
+    <div class="checkout-resumen">
+        <div class="checkout-subtitulo">Shipping Details</div>
+        <p><strong>Name:</strong> {{nombreCompleto}}</p>
+        <p><strong>Address:</strong> {{direccion}}</p>
+        <p><strong>Province:</strong> {{provincia}}</p>
+        <p><strong>Postal Code:</strong> {{postal}}</p>
+        <p><strong>Phone:</strong> {{telefono}}</p>
+        <p><strong>Notes:</strong> {{observaciones}}</p>
+    </div>
+
+    <div class="checkout-resumen">
+        <div class="checkout-subtitulo">Payment Details</div>
+        <p><strong>Card Type:</strong> {{tipoTarjeta}}</p>
+        <p><strong>Cardholder:</strong> {{titularTarjeta}}</p>
+        <p><strong>Number:</strong> {{numeroTarjeta}}</p>
+    </div>
+    
+    <div class="checkout-resumen">
+        <div class="checkout-subtitulo">Geek Data</div>
+        <p><strong>Favorite Genre:</strong> {{generoFavorito}}</p>
+        <p><strong>Favorite Movie:</strong> {{peliculaFavorita}}</p>
+    </div>    
+
+    <button id="boton_confirmar_pedido">CONFIRM ORDER</button>
+</div>
